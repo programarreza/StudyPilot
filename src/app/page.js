@@ -4,6 +4,9 @@ const HomePage = () => {
   return (
     <div>
       <h1>Welcome to studyPilot</h1>
+      <div>
+        <h2>banner - joy</h2>
+      </div>
     </div>
   );
 };
