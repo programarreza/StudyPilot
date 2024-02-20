@@ -5,7 +5,7 @@ const HomePage = () => {
     <div>
       <h1>Welcome to studyPilot</h1>
       <div>
-        <h2>banner - joy</h2>
+        <h2>banner section - joy</h2>
       </div>
     </div>
   );
