@@ -1,12 +1,15 @@
+import Banner from '@/components/Banner';
+import Collaborator from '@/components/Collaborator';
+import Navbar from '@/components/Navbar/Navbar';
 import React from 'react';
-import Navbar from './components/Navbar/Navbar';
+
 
 const HomePage = () => {
   return (
-    <div className=''> 
-     <Navbar></Navbar>
-      
-      
+    <div>
+      <Navbar></Navbar>
+      <Banner></Banner>
+      <Collaborator></Collaborator>
     </div>
   );
 };
