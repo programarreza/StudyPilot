@@ -10,7 +10,13 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollValue = window.scrollY;
-            setActive(scrollValue > 0)
+            console.log(scrollValue)
+            if(scrollValue>0){
+                setActive(true)
+            }
+            else{
+                setActive(false)
+            }
         };
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -43,6 +49,7 @@ const Navbar = () => {
                         <li>
                             About
                         </li>
+                        
                     </nav>
                 </div>
                 <div className="col-span-2  flex justify-end">
