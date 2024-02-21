@@ -1,11 +1,17 @@
 
+import Banner from '@/components/Banner';
+import Collaborator from '@/components/Collaborator';
+import Courses from '@/components/Courses';
+import Navbar from '@/components/Navbar/Navbar';
+import React from 'react';
+
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome to studyPilot</h1>
-      <h1>from Aiman</h1>
-      <h1>from shafikul branch</h1>
+      <Banner></Banner>
+      <Collaborator></Collaborator>
+      <Courses></Courses>
     </div>
   );
 };
