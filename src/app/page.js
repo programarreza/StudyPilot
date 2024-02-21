@@ -7,7 +7,6 @@ import React from 'react';
 const HomePage = () => {
   return (
     <div>
-      <Navbar></Navbar>
       <Banner></Banner>
       <Collaborator></Collaborator>
     </div>
