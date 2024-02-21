@@ -1,5 +1,6 @@
 import Banner from '@/components/Banner';
 import Collaborator from '@/components/Collaborator';
+import Courses from '@/components/Courses';
 import Navbar from '@/components/Navbar/Navbar';
 import React from 'react';
 
@@ -10,6 +11,7 @@ const HomePage = () => {
       <Navbar></Navbar>
       <Banner></Banner>
       <Collaborator></Collaborator>
+      <Courses></Courses>
     </div>
   );
 };
