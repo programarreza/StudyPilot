@@ -25,6 +25,7 @@ const Collaborator = () => {
                     </div>)
                 }
             </Marquee> 
+        
         </div>
     );
 };
