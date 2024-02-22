@@ -18,7 +18,7 @@ const Collaborator = () => {
     return (
         <div className="w-full p-20 bg-slate-400 mt-10 mb-5">
             <h2 className="text-4xl text-center font-bold mb-10">Over 100 plus companies are around with us</h2>
-           <Marquee>
+           <Marquee pauseOnHover>
                 {
                     logos.map((logo,idx)=><div className="h-[250px] w-[300px] border-2 bg-white mr-12" key={idx}>
                         <Image className="h-full w-full" src={logo} alt={`logo${idx}`}></Image>
