@@ -36,13 +36,8 @@ const Banner = () => {
           </div>)
         }
       </div> {/*  banner section ends */}
-
-      {/* collaborator section start */}
-        <div>
-          
-        </div>
     </div>
-    //banner section end
+    
   );
 };
 
