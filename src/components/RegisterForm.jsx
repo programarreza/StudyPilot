@@ -20,7 +20,7 @@ const RegisterForm = () => {
     try {
       console.log(data);
       const image = data.image[0];
-      // const imageData = await imageUpload(image);
+      console.log(image);
       const formData = new FormData();
       formData.append("image", image);
 
@@ -36,25 +36,10 @@ const RegisterForm = () => {
         password: data.password,
         image: imageData?.data?.display_url,
       };
+      console.log(userInfo);
 
       try {
-        // const email = data?.email;
-        // console.log(email);
-        // const resUserExists = await fetch("api/userExists", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({ email }),
-        // });
-
-        // const { user } = await resUserExists.json();
-        // if (user) {
-        //   toast.error("User already exists");
-        //   console.log("User already exists");
-        //   return;
-        // }
-
+       
         const res = await fetch("api/register", {
           method: "POST",
           headers: {
