@@ -1,11 +1,15 @@
-"use client"
-import { useState } from "react"; 
+"use client";
+import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
-	const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(true);
+
+  const router = useRouter();
 
   const {
     register,
@@ -21,9 +25,19 @@ const LoginForm = () => {
       const userInfo = {
         email: data.email,
         password: data.password,
+        redirect: false,
       };
       console.log(userInfo);
-      
+
+      const res = await signIn("credentials", userInfo);
+      if (res.error) {
+        console.log("Invalid Credentials ");
+        return;
+      }else{
+        console.log("login successfully");
+      }
+
+      router.replace("/");
     } catch (error) {
       console.log("Error", error);
     }
@@ -40,8 +54,7 @@ const LoginForm = () => {
                 className="card-body w-[380px] md:w-[450px] md:px-16 bg-white rounded-md"
               >
                 <h2 className="text-center text-3xl font-bold mt-5">Login</h2>
-			
-				
+
                 <div className="form-control">
                   <label className="label"></label>
                   <input
@@ -113,7 +126,6 @@ const LoginForm = () => {
                         Register Now
                       </span>
                     </Link>
-                    
                   </p>
                 </div>
               </form>
