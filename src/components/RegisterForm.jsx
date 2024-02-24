@@ -1,11 +1,10 @@
 "use client";
 import { useForm } from "react-hook-form";
-// import { imageUpload } from "../../Utils/Utils";
 import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import imageUpload from "@/utils/utils"
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const RegisterForm = () => {
   const [isShow, setIsShow] = useState(true);
@@ -37,6 +36,44 @@ const RegisterForm = () => {
         password: data.password,
         image: imageData?.data?.display_url,
       };
+
+      try {
+        // const email = data?.email;
+        // console.log(email);
+        // const resUserExists = await fetch("api/userExists", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({ email }),
+        // });
+
+        // const { user } = await resUserExists.json();
+        // if (user) {
+        //   toast.error("User already exists");
+        //   console.log("User already exists");
+        //   return;
+        // }
+
+        const res = await fetch("api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        });
+
+        if (res.ok) {
+          toast.success("registration successfully ");
+          console.log(res);
+          reset();
+        } else {
+          console.log("User registration failed");
+        }
+      } catch (error) {
+        console.log("Error during registration:", error);
+      }
+
       console.log(userInfo);
     } catch (error) {
       console.log("Error", error);
@@ -86,7 +123,7 @@ const RegisterForm = () => {
                     {...register("password", {
                       required: true,
                       minLength: 6,
-                      maxLength: 20,
+                      maxLength: 10,
                       // TODO: uncomment this validation
                       // pattern:
                       //   /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}/,
