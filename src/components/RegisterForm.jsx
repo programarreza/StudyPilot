@@ -20,7 +20,6 @@ const RegisterForm = () => {
     try {
       console.log(data);
       const image = data.image[0];
-      console.log(image);
       const formData = new FormData();
       formData.append("image", image);
 
@@ -36,7 +35,6 @@ const RegisterForm = () => {
         password: data.password,
         image: imageData?.data?.display_url,
       };
-      console.log(userInfo);
 
       try {
        
@@ -47,10 +45,9 @@ const RegisterForm = () => {
           },
           body: JSON.stringify(userInfo),
         });
-
+        const data = await res.json()
         if (res.ok) {
           toast.success("registration successfully ");
-          console.log(res);
           reset();
         } else {
           console.log("User registration failed");
@@ -154,7 +151,7 @@ const RegisterForm = () => {
                   </label>
                   <input
                     {...register("image", { required: true })}
-                    required
+                    // required
                     type="file"
                     id="image"
                     accept="image/*"
