@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectMongoDB from "../../../../lib/mongodb";
-import clases from "../../../../models/addClass";
+import connectMongoDB from "../../../lib/mongodb";
+import clases from "../../../models/addClass";
 
 // GET all class teacher dashboard 
 export async function GET(){

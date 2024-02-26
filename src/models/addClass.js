@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 const classSchema = new Schema({
   title: {
@@ -23,5 +23,5 @@ const classSchema = new Schema({
   },
 });
 
-const clases =  mongoose.model("Class", classSchema);
-export default clases;
+const Clases = models.Clases || model("Clases", classSchema);
+export default Clases; 
