@@ -38,6 +38,16 @@ const Courses = () => {
     </div>
   </div>
 </div>
+<div className={` card h-60 shadow-xl hover:cursor-pointer image-full`}>
+  <figure className='w-full'><img className='w-full' src="https://miro.medium.com/v2/resize:fit:1358/1*NWssrE1W1lhnUMTJ4xhQTg.png" alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title text-2xl  w-fit text-white font-bold">GraphQL for Beginners</h2>
+    <p className='text-white'>Master the core concepts of React.js and build powerful user interfaces efficiently with this comprehensive course.</p>
+    <div className="card-actions justify-start">
+      <button className="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
 <button onClick={() => setVisible(!isVisible)} className={`cursor:pointer col-span-2 mt-5 w-fit px-3 ${isVisible? "flex":"hidden"} mx-auto justify-center btn btn-success`}>See More</button>
 <div className={` ${isVisible? 'hidden' : 'card'}  h-60 shadow-xl hover:cursor-pointer image-full`}>
   <figure className='w-full'><img className='w-full' src="https://miro.medium.com/v2/resize:fit:1358/1*NWssrE1W1lhnUMTJ4xhQTg.png" alt="Shoes" /></figure>
