@@ -24,7 +24,7 @@ const Navbar = () => {
     <div className={`h-24 fixed w-screen z-30 ${active ? "" : ""}`}>
       <div className={`h-8 bg-green-200  transition-all duration-500 ${active ? "-translate-y-8 " : "translate-y-0"}`}>
         <marquee behavior="scroll" direction="left">
-          here will be show important notice
+          Important notices and offers will be shown here
         </marquee>
       </div>
       <div className={`h-16 bg-green-400 grid grid-cols-8 px-10 items-center justify-between ${active ? "-translate-y-8 transition-all duration-500" : "translate-y-0 transition-all duration-500"}`}>
@@ -62,7 +62,7 @@ const Navbar = () => {
           </div>
           {isShow && user ? (
             <ul className="menu  absolute menu-sm dropdown-content  mt-40 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
-             
+
 
               <li>
                 <p>user name</p>
