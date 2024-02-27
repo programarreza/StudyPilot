@@ -1,16 +1,24 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 
 const DeleteClass = ({id}) => {
-    console.log(id)
-   const handleDelete = (id)=>{
-            //post request to delete the class
-            console.log('the deleted class id is:',id)
+    const router = useRouter()
+   const handleDelete = async ()=>{
+      const confirmed = confirm("Are you sure?");
+      if(confirmed){
+        const res = await fetch(`http://localhost:3000/api/clases?id=${id}`, {
+            method: "DELETE",
+        })
+        if(res.ok){
+            router.refresh()
+        }
+      }
     }
     return (
         <div>
-            <button onClick={()=>handleDelete(id)}><MdDeleteForever className='text-3xl' /></button>
+            <button onClick={handleDelete}><MdDeleteForever className='text-3xl' /></button>
         </div>
     );
 };
