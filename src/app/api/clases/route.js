@@ -1,12 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-import connectMongoDB from "../../../lib/mongodb";
-import clases from "../../../models/addClass";
+import { NextResponse } from "next/server";
+
+import ConnectDB from "@/lib/ConnectDB";
+import Clases from "@/models/addClass";
 
 // GET all class teacher dashboard 
 export async function GET(){
-	await connectMongoDB()
+	await ConnectDB()
 	try {
-		const allClass = await clases.find();
+		const allClass = await Clases.find();
 		return NextResponse.json(allClass)
 	} catch (error) {
 		console.error("Error fetching class:", error)
@@ -16,11 +17,8 @@ export async function GET(){
 
 export async function POST(req) {
   const { title, description, author, image, price } = await req.json();
-  console.log({title, description, author, image, price});
-  console.log(req);
 
-  const db = await connectMongoDB();
-  console.log(db);
-  await clases.create({ title, description, author, image, price });
-  return NextRequest.json({ message: "Class Created" }, { status: 201 });
+  const db = await ConnectDB();
+  await Clases.create({ title, description, author, image, price });
+  return NextResponse.json({ message: "Class Created" }, { status: 201 });
 }
