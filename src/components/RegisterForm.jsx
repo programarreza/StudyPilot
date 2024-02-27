@@ -1,11 +1,10 @@
 "use client";
 import { useForm } from "react-hook-form";
-// import { imageUpload } from "../../Utils/Utils";
 import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import imageUpload from "@/utils/utils"
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const RegisterForm = () => {
   const [isShow, setIsShow] = useState(true);
@@ -21,7 +20,6 @@ const RegisterForm = () => {
     try {
       console.log(data);
       const image = data.image[0];
-      // const imageData = await imageUpload(image);
       const formData = new FormData();
       formData.append("image", image);
 
@@ -37,6 +35,27 @@ const RegisterForm = () => {
         password: data.password,
         image: imageData?.data?.display_url,
       };
+
+      try {
+       
+        const res = await fetch("api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        });
+        const data = await res.json()
+        if (res.ok) {
+          toast.success("registration successfully ");
+          reset();
+        } else {
+          console.log("User registration failed");
+        }
+      } catch (error) {
+        console.log("Error during registration:", error);
+      }
+
       console.log(userInfo);
     } catch (error) {
       console.log("Error", error);
@@ -86,7 +105,7 @@ const RegisterForm = () => {
                     {...register("password", {
                       required: true,
                       minLength: 6,
-                      maxLength: 20,
+                      maxLength: 10,
                       // TODO: uncomment this validation
                       // pattern:
                       //   /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}/,
@@ -132,7 +151,7 @@ const RegisterForm = () => {
                   </label>
                   <input
                     {...register("image", { required: true })}
-                    required
+                    // required
                     type="file"
                     id="image"
                     accept="image/*"

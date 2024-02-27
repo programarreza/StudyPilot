@@ -14,7 +14,7 @@ const AddClass = () => {
         try {
           console.log(data);
           const image = data.image[0];
-          // const imageData = await imageUpload(image);
+          console.log(image)
           const formData = new FormData();
           formData.append("image", image);
     
@@ -31,9 +31,11 @@ const AddClass = () => {
             description: data.description,
             image: imageData?.data?.display_url,
           };
-          console.log(courseInfo);
+          console.log(courseInfo)
+        
         } catch (error) {
           console.log("Error", error);
+          errors()
         }
       };
     return (
