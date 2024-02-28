@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-
 import ConnectDB from "@/lib/ConnectDB";
 import Clases from "@/models/addClass";
 

@@ -5,7 +5,6 @@ const getClassById = async (id) => {
     const res = await fetch(`http://localhost:3000/api/clases/${id}`, {
       cache: "no-store",
     });
-    console.log(id);
 
     if (!res.ok) {
       throw new Error("Failed to fetch topic");

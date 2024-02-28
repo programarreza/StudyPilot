@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaEdit } from 'react-icons/fa';
 import DeleteClass from './deleteClass';
 
-const getClases = async () => {
+export const getClases = async () => {
     try {
       const res = await fetch("http://localhost:3000/api/clases", {
         cache: "no-store",
