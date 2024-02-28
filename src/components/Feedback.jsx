@@ -25,7 +25,7 @@ const Feedback = () => {
 
     return (
         <div className="w-9/12 mx-auto my-14">
-           <p className='text-center text-blue-800 text-5xl w-fit mx-auto my-20 font-bold shadow-2xl p-5 px-12 shadow-red-950'>USER'S FEEDBACK</p>
+           <p className='text-center text-blue-800 text-5xl w-fit mx-auto my-20 font-bold shadow-2xl p-5 px-14 shadow-red-950'>USER'S FEEDBACK</p>
             <Swiper navigation={true}  className="mySwiper">
         {
             rev.map(item=><SwiperSlide key={item._id}>
