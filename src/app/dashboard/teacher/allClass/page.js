@@ -21,7 +21,6 @@ const getClases = async () => {
 }
 const Clases = async () => {
     const clases = await getClases()
-    console.log(clases);
     
     return (
         <div className='mx-5'>
@@ -47,7 +46,7 @@ const Clases = async () => {
                             <div className='flex bg-slate-300 p-2 rounded-lg items-center justify-between'>
                                 <button className='bg-black text-xl font-medium text-white px-2  rounded-md'><Link href={`/dashboard/teacher/allClass/SeeDetails/${cls?._id}`}>See Details</Link></button>
                                 <div className='flex gap-2 hover:cursor-pointer'>
-                                    <Link href={`/dashboard/teacher/allClass/updateClass/${cls?._id}`}><FaEdit className='text-[28px]'></FaEdit></Link>
+                                    <Link href={`/dashboard/teacher/allClass/editClass/${cls?._id}`}><FaEdit className='text-[28px]'></FaEdit></Link>
                                     <DeleteClass id={cls?._id}></DeleteClass>
 
                                 </div>
