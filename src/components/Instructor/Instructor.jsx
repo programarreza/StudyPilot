@@ -2,9 +2,9 @@ import instructor from '../../assets/image/instructor.png'
 import Image from 'next/image';
 const Instructor = () => {
     return (
-        <div className="grid grid-cols-2 gap-5 h-[70vh]">
+        <div className="grid grid-cols-2 gap-5 ">
             <div className="bg-yellow-200">
-                <Image src={instructor} className='' alt='instructor'></Image>
+                <Image src={instructor} className='h-42' alt='instructor'></Image>
             </div>
             <div className="flex flex-col justify-center px-5">
                 <h1 className='text-3xl font-bold'>Become an instructor</h1>

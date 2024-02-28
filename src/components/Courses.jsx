@@ -5,7 +5,7 @@ const Courses = () => {
   const [isVisible, setVisible] = useState("false")
     return (
         <div className='my-5 w-9/12 mx-auto'>
-        <p className='text-center text-blue-800 text-7xl my-20 font-bold shadow-2xl p-5 shadow-red-950'>Most Selling Courses</p>
+        <p className='text-center text-blue-800 text-5xl w-fit mx-auto my-20 font-bold shadow-2xl p-5 px-12 shadow-red-950'>MOST SELLING COURSES</p>
         <div className='grid grid-cols-2 gap-5'>
            
 <div className="card  h-60 shadow-xl hover:cursor-pointer image-full ">
@@ -32,6 +32,16 @@ const Courses = () => {
   <figure className='w-full'><img className='w-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhNyWpF9LRHK4VsjMEHI8JRcYYJY0g451eUBl6-hR72302He_76eWIkoOGG-IwHjkwiD4&usqp=CAU" alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title text-2xl  w-fit text-white font-bold">Data Structures in JavaScript</h2>
+    <p className='text-white'>Master the core concepts of React.js and build powerful user interfaces efficiently with this comprehensive course.</p>
+    <div className="card-actions justify-start">
+      <button className="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
+<div className={` card h-60 shadow-xl hover:cursor-pointer image-full`}>
+  <figure className='w-full'><img className='w-full' src="https://miro.medium.com/v2/resize:fit:1358/1*NWssrE1W1lhnUMTJ4xhQTg.png" alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title text-2xl  w-fit text-white font-bold">GraphQL for Beginners</h2>
     <p className='text-white'>Master the core concepts of React.js and build powerful user interfaces efficiently with this comprehensive course.</p>
     <div className="card-actions justify-start">
       <button className="btn btn-primary">Buy Now</button>
