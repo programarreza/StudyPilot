@@ -12,7 +12,7 @@ const getClases = async () => {
         cache: "no-store",
       });
       if (!res.ok) {
-        throw new Error("Failed to fetch clases");
+        throw new Error("Failed to fetch enrolledclases");
       }
       return res.json();
     } catch (error) {
