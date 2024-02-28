@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import demoPic from "@/assets/image/demo.jpg";
 import Image from "next/image";
 
@@ -29,7 +30,7 @@ const Clases = async () => {
                 {
                     clases?.map(cls => <div key={cls?._id} className="card bg-base-100 shadow-xl">
                         <figure className='overflow-hidden'>
-                            <Image className="w-full h-[250px] transition-all duration-300 hover:scale-110" src={demoPic} alt="classes" />
+                            <img className="w-full h-[250px] transition-all duration-300 hover:scale-110" src={cls?.image} alt="classes" />
                             </figure>
                         <div className="card-body">
                             <div>
