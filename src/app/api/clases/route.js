@@ -29,3 +29,5 @@ export async function DELETE(req) {
   await Clases.findByIdAndDelete(id);
   return NextResponse.json({ message: "class deleted" }, { status: 203 });
 }
+
+
