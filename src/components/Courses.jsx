@@ -5,7 +5,7 @@ const Courses = () => {
   const [isVisible, setVisible] = useState("false")
     return (
         <div className='my-5 w-9/12 mx-auto'>
-        <p className='text-center text-blue-800 text-7xl my-20 font-bold shadow-2xl p-5 shadow-red-950'>Most Selling Courses</p>
+        <p className='text-center text-blue-800 text-5xl w-fit mx-auto my-20 font-bold shadow-2xl p-5 px-12 shadow-red-950'>MOST SELLING COURSES</p>
         <div className='grid grid-cols-2 gap-5'>
            
 <div className="card  h-60 shadow-xl hover:cursor-pointer image-full ">
