@@ -1,14 +1,22 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const [isShow, setIsShow] = useState(true);
   const router = useRouter();
+  const session = useSession();
+
+  useEffect(() => {
+    if (session?.status === "authenticated") {
+      router.replace("/");
+    }
+  }, [router, session?.status]);
 
   const {
     register,
@@ -19,26 +27,26 @@ const LoginForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
       // create user entry in the database
       const userInfo = {
         email: data.email,
         password: data.password,
-        redirect: false,
       };
       console.log(userInfo);
 
-      const res = await signIn("credentials", userInfo);
-      if (res.error) {
-        console.log("Invalid Credentials ");
-        return;
-      }else{
-        console.log("login successfully");
-      }
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+      });
 
-      router.replace("/");
+      if (res?.error) {
+        toast.error("Invalid email or password");
+        if (res?.url) router.replace("/");
+      }
     } catch (error) {
       console.log("Error", error);
+      throw new Error(error);
     }
   };
 
