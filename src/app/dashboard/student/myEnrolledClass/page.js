@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import React from 'react';
 import demoImg from '@/assets/image/demo.jpg'
@@ -17,12 +18,12 @@ const MyEnrolledClass = async () => {
     const enrolledClasses = await getEnrolledClasses()
     return (
         <div className='mx-5'>
-        <h2 className='text-center my-5 text-4xl font-bold'>My all classes</h2>
+        <h2 className='text-center my-5 text-4xl font-bold'>My enrolled classes</h2>
         <div className='grid grid-cols-3 gap-5'>
             {
                 enrolledClasses?.map(cls => <div key={cls?._id} className="card bg-base-100 shadow-xl">
                     <figure className='overflow-hidden'>
-                        <Image className="w-full h-[250px] transition-all duration-300 hover:scale-110" src={demoPic} alt="classes" />
+                        <img className="w-full h-[250px] transition-all duration-300 hover:scale-110" src={cls.image} alt="classes" />
                         </figure>
                     <div className="card-body">
                         <div>
@@ -38,7 +39,7 @@ const MyEnrolledClass = async () => {
                             <p>status: pending</p>
                         </div>
                         <div className=''>
-                            <button className='bg-black text-xl font-medium text-white px-2  rounded-md'><Link href={`/dashboard/teacher/allClass/SeeDetails/${cls?._id}`}>See Details</Link></button>
+                            <button className='bg-black text-xl font-medium text-white px-2  rounded-md'><Link href={`/dashboard/student/myEnrolledClass/${cls?._id}`}>Continue</Link></button>
                             
                         </div>
                     </div>

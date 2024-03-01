@@ -3,7 +3,7 @@ import React from 'react';
 import { FaHome } from 'react-icons/fa';
 
 const layout = ({ children }) => {
-    const role = "student"
+    const role = "teacher"
     return (
         <div className='flex '>
             {(role == "teacher") &&

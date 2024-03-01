@@ -8,7 +8,6 @@ const AddClass = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -49,7 +48,7 @@ const AddClass = () => {
       }
     } catch (error) {
       console.log("Error", error);
-      errors();
+  
     }
   };
   return (
