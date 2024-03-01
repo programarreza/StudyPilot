@@ -5,9 +5,11 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
   const [isShow, setIsShow] = useState(true);
+  const router = useRouter();
 
   const {
     register,
@@ -37,7 +39,6 @@ const RegisterForm = () => {
       };
 
       try {
-       
         const res = await fetch("api/register", {
           method: "POST",
           headers: {
@@ -45,18 +46,22 @@ const RegisterForm = () => {
           },
           body: JSON.stringify(userInfo),
         });
-        const data = await res.json()
+        const data = await res.json();
+        if (res.status === 400) {
+          toast.error("Email is already in user");
+          return;
+        }
+
         if (res.ok) {
           toast.success("registration successfully ");
           reset();
+          router.push("/signin")
         } else {
           console.log("User registration failed");
         }
       } catch (error) {
         console.log("Error during registration:", error);
       }
-
-      console.log(userInfo);
     } catch (error) {
       console.log("Error", error);
     }
