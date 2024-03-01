@@ -3,11 +3,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import logo from "@/assets/image/logo.png";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [isShow, setIsShow] = useState(false);
+  const { data: session } = useSession();
   const user = true;
 
   useEffect(() => {
@@ -40,42 +41,48 @@ const Navbar = () => {
           </nav>
         </div>
         <div className="col-span-2  flex justify-end items-center">
-          <Link href={"/signin"}>
-            <button className="px-8 py-1 bg-black text-white text-center">
-              Login
-            </button>
-          </Link>
-
-          <div className="dropdown dropdown-end">
-            <label
-              onClick={() => setIsShow(!isShow)}
-              className="btn btn-ghost btn-circle avatar "
-            >
-              <div className="w-10 rounded-full ">
-                <Image
-                  src="https://i.postimg.cc/7PS6bh1w/profile.png"
-                  width="100" height={"10"}
-                  alt={"user profile"}
-                />
-              </div>
-            </label>
-          </div>
-          {isShow && user ? (
-            <ul className="menu  absolute menu-sm dropdown-content  mt-40 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
-             
-
-              <li>
-                <p>user name</p>
-              </li>
-              <li>
-                <p>dashboard</p>
-              </li>
-              <li>
-                <button onClick={() => signOut()}>Log Out</button>
-              </li>
-            </ul>
+          {!session ? (
+            <>
+              <Link href={"/signin"}>
+                <button className="px-8 py-1 bg-black text-white text-center">
+                  Login
+                </button>
+              </Link>
+            </>
           ) : (
-            ""
+            <>
+              <div className="dropdown dropdown-end">
+                <label
+                  onClick={() => setIsShow(!isShow)}
+                  className="btn btn-ghost btn-circle avatar "
+                >
+                  <div className="w-10 rounded-full ">
+                    <Image
+                      src="https://i.postimg.cc/7PS6bh1w/profile.png"
+                      width="100"
+                      height={"10"}
+                      alt={"user profile"}
+                    />
+                  </div>
+                </label>
+              </div>
+              {isShow && user ? (
+                <ul className="menu  absolute menu-sm dropdown-content  mt-48 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
+                  <li>
+                    <p>{session.user?.name}</p>
+                    <p>{session.user?.email}</p>
+                  </li>
+                  <li>
+                    <p>dashboard</p>
+                  </li>
+                  <li>
+                    <button onClick={() => signOut()}>Log Out</button>
+                  </li>
+                </ul>
+              ) : (
+                ""
+              )}
+            </>
           )}
         </div>
       </div>

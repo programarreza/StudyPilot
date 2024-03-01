@@ -126,6 +126,16 @@ const LoginForm = () => {
                   >
                     Login In
                   </button>
+                </div>
+              </form>
+              <div className="bg-white pb-8">
+                <div className="mx-[65px] pr-5 ">
+                  <button
+                    onClick={() => signIn("github")}
+                    className="btn  bg-black  hover:bg-[#000000b4] text-white w-full"
+                  >
+                    Login With Github
+                  </button>
                   <p className=" text-center mt-2">
                     Are you new user?{" "}
                     <Link href={"/signup"}>
@@ -135,7 +145,7 @@ const LoginForm = () => {
                     </Link>
                   </p>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
