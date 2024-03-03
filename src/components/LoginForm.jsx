@@ -1,4 +1,6 @@
 "use client";
+import { ImGoogle2 } from "react-icons/im";
+import { FaGithubSquare } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
@@ -129,13 +131,15 @@ const LoginForm = () => {
                 </div>
               </form>
               <div className="bg-white pb-8">
-                <div className="mx-[65px] pr-5 ">
-                  <button
-                    onClick={() => signIn("github")}
-                    className="btn  bg-black  hover:bg-[#000000b4] text-white w-full"
-                  >
-                    Login With Github
-                  </button>
+                <div className=" ">
+                  <div className="flex justify-center w-full gap-6">
+                    <button onClick={() => signIn("github")}>
+                      <FaGithubSquare size={45} />
+                    </button>
+                    <button onClick={() => signIn("google")}>
+                      <ImGoogle2 size={40} />
+                    </button>
+                  </div>
                   <p className=" text-center mt-2">
                     Are you new user?{" "}
                     <Link href={"/signup"}>

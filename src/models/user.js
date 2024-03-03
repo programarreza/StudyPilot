@@ -1,4 +1,4 @@
-import { Schema, models, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const userSchema = new Schema(
   {
@@ -11,8 +11,8 @@ const userSchema = new Schema(
       unique: true,
       required: true,
     },
-    password: { type: String, required: true },
-    image: { type: String, required: true },
+    password: { type: String, require: false },
+    image: { type: String, require: false },
   },
   { timestamps: true }
 );

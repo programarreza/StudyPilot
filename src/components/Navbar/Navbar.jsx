@@ -57,12 +57,13 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar "
                 >
                   <div className="w-10 rounded-full ">
-                    <Image
-                      src="https://i.postimg.cc/7PS6bh1w/profile.png"
+                    {/* <Image
+                      src={session.user?.image}
                       width="100"
                       height={"10"}
                       alt={"user profile"}
-                    />
+                    /> */}
+                    <img src={session.user?.image}/>
                   </div>
                 </label>
               </div>
